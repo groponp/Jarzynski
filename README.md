@@ -11,3 +11,5 @@ python compute_jarzynski.py --usage
 [USAGE    ] "%opt1: python compute_jarzynski.py -f work_matrix.csv -o reconstructed_PMF.csv"
 [USAGE    ] "%opt2: python compute_jarzynski.py --file=work_matrix.csv -ofile=reconstructed_PMF.csv"
 ```
+## License 
+[MIT](https://choosealicense.com/licenses/mit/)
