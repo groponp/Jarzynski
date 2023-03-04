@@ -12,4 +12,4 @@ python compute_jarzynski.py --usage
 [USAGE    ] "%opt2: python compute_jarzynski.py --file=work_matrix.csv -ofile=reconstructed_PMF.csv"
 ```
 ## License 
-[MIT](https://choosealicense.com/licenses/mit/)
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
