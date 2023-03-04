@@ -104,7 +104,7 @@ class Jarzynski(IO):
         pmf_no_beta = []
         pmf_with_beta = [] 
 
-        m, r,c,d = super().read_file(file) 
+        m, r,c,d = super().read_file(self.file) 
 
         for i in range(self.w0_avg):
             deltaG1 = self.w0_avg[i]-(diff_w1_w2[i])     
