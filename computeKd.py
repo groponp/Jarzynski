@@ -27,8 +27,8 @@ class IO:
     
     def write_ofile(self, ofile_name, kd1, kd2, unit):
         dict_name = dict()
-        dict_name["Kd_Type"] = ["Kd1", "Kd2"]
-        dict_name["Kd_Val"] = [kd1, kd2]
+        dict_name["Kd_TYPE"] = ["Kd1", "Kd2"]
+        dict_name["Kd_VAL"] = [kd1, kd2]
         dict_name["UNITS"] = [unit, unit]
         dict_name["DESCRIPTION"] = ["PM_NO_BETA", "PMF_WITH_BETA"]
 
