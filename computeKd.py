@@ -20,8 +20,8 @@ class IO:
     def read_file(self, file):
         file_name = file 
         df = pd.read_csv(file_name) 
-        pmf1_min, pmf1_max = min(df.iloc[:,1].to_list()) , max(df.iloc[:,1].to_list())  #! PMF_NO_BETA
-        pmf2_min, pmf2_max = min(df.iloc[:,2].to_list()) , max(df.iloc[:,2].to_list())  #! PMF_WITH_BETA
+        pmf1_min, pmf1_max = df.iloc[:1,1] , df.iloc[-1:,1]  #! PMF_NO_BETA
+        pmf2_min, pmf2_max = df.iloc[:1,2] , df.iloc[-1:,2]  #! PMF_WITH_BETA
 
         return pmf1_min, pmf1_max, pmf2_min, pmf2_max 
     
