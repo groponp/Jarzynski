@@ -3,7 +3,7 @@ This repository contains a python script, which allows to rebuild the PMF based 
 
 <img src="figures/slide_3.jpeg">
 
-## Usage
+## Usage Jarzynski 
 ```bash
 python compute_jarzynski.py --usage 
 
@@ -11,5 +11,18 @@ python compute_jarzynski.py --usage
 [USAGE    ] "%opt1: python compute_jarzynski.py -f work_matrix.csv -o reconstructed_PMF.csv"
 [USAGE    ] "%opt2: python compute_jarzynski.py --file=work_matrix.csv -ofile=reconstructed_PMF.csv"
 ```
+
+## Usage Kd 
+```
+python computeKd.py --usage 
+
+#! Return 
+[USAGE    ] \"%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0"
+[USAGE    ] \"%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0"
+
+    def main(self):
+```
+
+
 ## License 
 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
