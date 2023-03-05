@@ -13,12 +13,12 @@ python compute_jarzynski.py --usage
 ```
 
 ## Usage Kd 
-```
+```bash
 python computeKd.py --usage 
 
 #! Return 
-[USAGE    ] \"%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0"
-[USAGE    ] \"%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0"
+[USAGE    ] "%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0"
+[USAGE    ] "%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0"
 
     def main(self):
 ```
