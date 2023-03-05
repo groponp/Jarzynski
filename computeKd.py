@@ -37,7 +37,7 @@ class IO:
 
     def usage(self): 
         print("[USAGE    ] \"%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0\"")
-        print("[USAGE    ] \"%opt2: python computeKd.py --file=PMF.csv -ofile=kd.csv --units=nM --box_volume=1000.0\"")
+        print("[USAGE    ] \"%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0\"")
 
     def main(self):
         info=f"""<Compute Dissosiation constant from PMF>""" + "\n" + """wrote by: Ropón-Palacios G."""
