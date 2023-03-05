@@ -39,8 +39,8 @@ class IO:
         info=f"""<Compute Jarzynski Equality>""" + "\n" + """wrote by: Ropón-Palacios G."""
     
         parser = optparse.OptionParser(description=info, version="%prog v1.0a")
-        parser.add_option("-f", "--ifile", help="Name of the input file", type=str)
-        parser.add_option("-o", "--ofile", help="Name of the output file", type=str)   
+        parser.add_option("-f", "--ifile", help="Name of the input file, units inputs:  Distance [nm] and Work [kJ/mol]", type=str)
+        parser.add_option("-o", "--ofile", help="Name of the output file, units output: PMF [kJ/mol]", type=str)   
         parser.add_option("-u", "--usage", help="Print usage", action="store_true", dest="usage")
 
         opts, args = parser.parse_args()
@@ -51,7 +51,7 @@ class IO:
 class Jarzynski(IO):
     def __init__(self, file):
         self.T = 300                                              #! Temperature in K units.
-        self.kb = 0.001982923700                                  #! Boltzmann constant in kcal/mol*K units. 
+        self.kb = 0.001982923700 * 4.1840                         #! Boltzmann constant in kJ/mol*K units. 
         self.beta = 1/(self.kb*self.T)                            #! Beta' Boltzmann value. 
         self.Te  = self.kb*self.T                                 #! Thermal energy
         self.file = file 
