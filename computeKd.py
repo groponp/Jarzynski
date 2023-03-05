@@ -45,7 +45,7 @@ class IO:
         parser = optparse.OptionParser(description=info, version="%prog v1.0a")
         parser.add_option("-f", "--ifile", help="Name of the input file", type=str)
         parser.add_option("-u", "--units", help="Units of the output. [M, mM, nM]", type=str)
-        parser.add_option("-o", "--ofile", help="Units of the output. [M, mM, nM]", type=str)
+        parser.add_option("-o", "--ofile", help="Name of the output file", type=str)
         parser.add_option("-b", "--box_volume", help="Volume of box used in nm^3", type=float)   
         parser.add_option("--usage", help="Print usage", action="store_true", dest="usage")
 
