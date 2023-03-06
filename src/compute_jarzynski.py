@@ -36,8 +36,8 @@ class IO:
         df.to_csv(ofile_name, index=False) 
 
     def usage(self): 
-        print("[USAGE    ] \"%opt1: python compute_jarzynski.py -f work_matrix.csv -o reconstructed_PMF.csv -t 300 -e gmx\"")
-        print("[USAGE    ] \"%opt2: python compute_jarzynski.py --file=work_matrix.csv -ofile=reconstructed_PMF.csv --temperature=300 --engine=gmx\"")
+        print("[USAGE    ] \"%opt1: python jarzynski.py pmf -f work_matrix.csv -o reconstructed_PMF.csv -t 300 -e gmx\"")
+        print("[USAGE    ] \"%opt2: python jarzynski.py pmf --file=work_matrix.csv -ofile=reconstructed_PMF.csv --temperature=300 --engine=gmx\"")
 
     def main(self):
         info=f"""<Compute Jarzynski Equality>""" + "\n" + """wrote by: Ropón-Palacios G."""

@@ -24,8 +24,8 @@ class IO:
     def read_file(self, file):
         file_name = file 
         df = pd.read_csv(file_name) 
-        pmf1_min, pmf1_max = df.iloc[:1,1] , df.iloc[-1:,1]  #! PMF_NO_BETA
-        pmf2_min, pmf2_max = df.iloc[:1,2] , df.iloc[-1:,2]  #! PMF_WITH_BETA
+        pmf1_min, pmf1_max = df.iloc[:1,1].values[0] , df.iloc[-1:,1].values[0]  #! PMF_NO_BETA
+        pmf2_min, pmf2_max = df.iloc[:1,2].values[0] , df.iloc[-1:,2].values[0]  #! PMF_WITH_BETA
 
         return pmf1_min, pmf1_max, pmf2_min, pmf2_max 
     
@@ -40,30 +40,37 @@ class IO:
         df.to_csv(ofile_name, index=False) 
 
     def usage(self): 
-        print("[USAGE    ] \"%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0\"")
-        print("[USAGE    ] \"%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0\"")
+        print("[USAGE    ] \"%opt1: python jarzynski.py kd -f PMF.csv -o kd.csv -u nM -b 1000 -t 300 -e gmx\"")
+        print("[USAGE    ] \"%opt2: python jarzynski.py kd --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000 --temperature=300 --engine=gmx\"")
 
     def main(self):
         info=f"""<Compute Dissosiation constant from PMF>""" + "\n" + """wrote by: Ropón-Palacios G."""
     
-        parser = optparse.OptionParser(description=info, version="%prog v1.0a")
+        parser = optparse.OptionParser(description=info, version="%prog v1.0")
         parser.add_option("-f", "--ifile", help="Name of the input file", type=str)
         parser.add_option("-u", "--units", help="Units of the output. [M, mM, nM]", type=str)
         parser.add_option("-o", "--ofile", help="Name of the output file", type=str)
         parser.add_option("-b", "--box_volume", help="Volume of box used in nm^3", type=float)   
+        parser.add_option("-t", "--temperature", help="Absolute temperature [K]", type=float)  
+        parser.add_option("-e", "--engine", help="Engine that you used to compute [namd, gmx]", type=str)
         parser.add_option("--usage", help="Print usage", action="store_true", dest="usage")
 
         opts, args = parser.parse_args()
         return opts
 
 class Kd(IO):
-    def __init__(self, file, boxVol):
+    def __init__(self, file, boxVol, T, engine):
         self.file = file 
+        self.engine = engine 
+        self.T = T                                                #! Absolute temperature in K.
         self.pmf1_min, self.pmf1_max, self.pmf2_min, self.pmf2_max = super().read_file(self.file) 
-        self.kb = 0.001982923700                                  #! Boltzmann constant in kcal/mol*K units. 
+        if self.engine == "gmx":
+            self.kb = 0.001982923700 * 4.1840                     #! Boltzmann constant in kJ/mol*K units. 
+        else:
+            self.kb = 0.001982923700                              #! Boltzmann constant in kcal/mol*K units. 
         self.beta = 1/(self.kb*self.T)                            #! Beta' Boltzmann value. 
         self.boxVol = boxVol                                      #! Box volumen of simulation. 
-        self.Ccomp  = 1/self.boxVol                               #! Computational concentrarion used, unit A^3
+        self.Ccomp  = self.boxVol                                 #! Computational concentrarion used, unit A^3
         self.Cstandard = 1/1661                                   #! Standard concentration, unit in A^3
     
     def deltaG(self):

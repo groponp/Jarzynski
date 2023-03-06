@@ -5,20 +5,20 @@ This repository contains a python script, which allows to rebuild the PMF based 
 
 ## Usage Jarzynski 
 ```bash
-python compute_jarzynski.py --usage 
+python jarzynski.py pmf --usage 
 
 #! Return 
-[USAGE    ] "%opt1: python compute_jarzynski.py -f work_matrix.csv -o reconstructed_PMF.csv"
-[USAGE    ] "%opt2: python compute_jarzynski.py --file=work_matrix.csv -ofile=reconstructed_PMF.csv"
+[USAGE    ] "%opt1: python jarzynski.py pmf -f work_matrix.csv -o reconstructed_PMF.csv -t 300 -e gmx"
+[USAGE    ] "%opt2: python jarzynski.py pmf --file=work_matrix.csv -ofile=reconstructed_PMF.csv --temperature=300 --engine=gmx"
 ```
 
 ## Usage Kd 
 ```bash
-python computeKd.py --usage 
+python jarzynski.py kd --usage 
 
 #! Return 
-[USAGE    ] "%opt1: python computeKd.py -f PMF.csv -o kd.csv -u nM -b 1000.0"
-[USAGE    ] "%opt2: python computeKd.py --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000.0"
+[USAGE    ] "%opt1: python jarzynski.py kd -f PMF.csv -o kd.csv -u nM -b 1000 -t 300 -e gmx"
+[USAGE    ] "%opt2: python jarzynski.py kd --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000 --temperature=300 --engine=gmx "
 
     def main(self):
 ```
