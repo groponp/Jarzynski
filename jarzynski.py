@@ -40,7 +40,7 @@ elif tool == "kd":
 
 else: 
     IO().message("You haven't select any tool.")
-    IO().message("%usage: jarzysnki pmf -h or jarzysnki kd -h")
+    IO().message("%usage: jarzysnki pmf -h or jarzysnki kd -h.")
 
 
 
