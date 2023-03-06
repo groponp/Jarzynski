@@ -42,7 +42,7 @@ class IO:
     def main(self):
         info=f"""<Compute Jarzynski Equality>""" + "\n" + """wrote by: Ropón-Palacios G."""
     
-        parser = optparse.OptionParser(description=info, version="%prog v1.0.1")
+        parser = optparse.OptionParser(description=info, version="%prog v1.0.2")
         parser.add_option("-f", "--ifile", help="Name of the input file, units inputs:  Distance [nm] and Work [kJ/mol]", type=str)
         parser.add_option("-o", "--ofile", help="Name of the output file, units output: PMF [kJ/mol]", type=str)
         parser.add_option("-e", "--engine", help="Engine that you use to compute [namd, gmx]", type=str)
