@@ -4,7 +4,7 @@ readme = open("./README.md", "r")
 
 setup(
     name="jarzynski", 
-    version='1.0.5',
+    version='1.0.3',
     description='A computational tool to compute PMF and Kd from non-equilibrium simulation',
     long_description=readme.read(), 
     long_description_content_type='text/markdown',
