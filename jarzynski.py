@@ -2,8 +2,7 @@ import sys
 import pandas as pd 
 import numpy as np
 import time 
-import optparse
-
+import optparse 
 
 #! check input of module.
 tool = sys.argv[1]
