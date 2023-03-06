@@ -3,8 +3,8 @@ from setuptools import setup
 readme = open("./README.md", "r")
 
 setup(
-    name="Jarzynski", 
-    packages=['Jarzynski'],
+    name="jarzynski", 
+    packages=['jarzynski'],
     version='1.0.2',
     description='A computational tool to compute PMF and Kd from non-equilibrium simulation',
     long_description=readme.read(), 
