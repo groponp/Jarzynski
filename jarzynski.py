@@ -9,7 +9,7 @@ import optparse
 tool = sys.argv[1]
 
 if tool == "pmf":
-    from src.compute_jarzynski import IO 
+    from src.compute_jarzynski import IO, Jarzynski
     opts = IO().main() 
 
     if opts.usage:
@@ -20,13 +20,13 @@ if tool == "pmf":
         time.sleep(1)
         IO().message("Reconstruct PMF from Non-equilibrium dynamics.")
         time.sleep(1)
-        pmf1, pmf2,d = Jarzynski(file=opts.file).reconstruct_PMF()  
-        IO().message("Writng Ofile to {}".format())
+        pmf1, pmf2,d = Jarzynski(file=opts.ifile, T=opts.temperature, engine=opts.engine).reconstruct_PMF()  
+        IO().message("Writng Ofile to {}".format(opts.ofile))
         IO().write_ofile(ofile_name=opts.ofile, pmf_no_beta=pmf1, pmf_with_beta=pmf2, d=d)
         IO().message("Done.")
 
 elif tool == "kd":
-    from src.computeKd import IO 
+    from src.computeKd import IO, Kd
     opts = IO().main()
 
     if opts.usage:
@@ -35,7 +35,7 @@ elif tool == "kd":
     else:
         IO().message("Start to compute Dissociation constant [Kd].")
         time.sleep(2)
-        kd1, kd2, unit = Kd(file=opts.file, boxVol=opts.box_volume).compute_kd(unit=opts.unit)
+        kd1, kd2, unit = Kd(file=opts.ifile, boxVol=opts.box_volume, T=opts.temperature, engine=opts.engine).compute_kd(unit=opts.units)
         IO().message("Wrote output file.")
         IO().write_ofile(ofile_name=opts.ofile, kd1=kd1, kd2=kd2, unit=unit)
 
