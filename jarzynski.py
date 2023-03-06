@@ -1,5 +1,3 @@
-from src.compute_jarzynski import *
-from src.computeKd import * 
 import sys
 import pandas as pd 
 import numpy as np
@@ -11,6 +9,7 @@ import optparse
 tool = sys.argv[1]
 
 if tool == "pmf":
+    from src.compute_jarzynski import IO 
     opts = IO().main() 
 
     if opts.usage:
@@ -27,6 +26,7 @@ if tool == "pmf":
         IO().message("Done.")
 
 elif tool == "kd":
+    from src.computeKd import IO 
     opts = IO().main()
 
     if opts.usage:
