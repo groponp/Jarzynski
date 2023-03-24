@@ -21,7 +21,7 @@ class IO:
     def read_file(self, file):
         file_name = file 
         df = pd.read_csv(file_name) 
-        matrix_w = df.iloc[:,1:-1].to_numpy()
+        matrix_w = df.iloc[:,1:].to_numpy()
         row, col = df.shape 
         d =  df.iloc[:,0].to_list() 
         return matrix_w, int(row), int(col-1), d 
@@ -70,8 +70,8 @@ class Jarzynski(IO):
         self.w1_avg, self.w2_avg_sq, self.w0_avg = self.compute_2do_expasion()
 
     def cummulative_work(self):
-        cum_work = np.cumsum((self.m*0.1*0.01), axis=0)   #! Sum work by column , axis =0.
-        #cum_work = np.cumsum(self.m, axis=0)   #! Sum work by column , axis =0.
+        #cum_work = np.cumsum((self.m*0.1*0.01), axis=0)   #! Sum work by column , axis =0.
+        cum_work = np.cumsum(self.m, axis=0)   #! Sum work by column , axis =0.
         return cum_work 
     
     def compute_2do_expasion(self):
