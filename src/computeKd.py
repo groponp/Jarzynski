@@ -40,8 +40,8 @@ class IO:
         df.to_csv(ofile_name, index=False) 
 
     def usage(self): 
-        print("[USAGE    ] \"%opt1: python jarzynski.py kd -f PMF.csv -o kd.csv -u nM -b 1000 -t 300 -e gmx\"")
-        print("[USAGE    ] \"%opt2: python jarzynski.py kd --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000 --temperature=300 --engine=gmx\"")
+        print("[USAGE    ] \"%opt1: jarzynski kd -f PMF.csv -o kd.csv -u nM -b 1000 -t 300 -e gmx\"")
+        print("[USAGE    ] \"%opt2: jarzynski kd --file=PMF.csv --ofile=kd.csv --units=nM --box_volume=1000 --temperature=300 --engine=gmx\"")
 
     def main(self):
         info=f"""<Compute Dissosiation constant from PMF>""" + "\n" + """wrote by: Ropón-Palacios G."""
