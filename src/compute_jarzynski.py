@@ -36,8 +36,8 @@ class IO:
         df.to_csv(ofile_name, index=False) 
 
     def usage(self): 
-        print("[USAGE    ] \"%opt1: python jarzynski.py pmf -f work_matrix.csv -o reconstructed_PMF.csv -t 300 -e gmx\"")
-        print("[USAGE    ] \"%opt2: python jarzynski.py pmf --file=work_matrix.csv -ofile=reconstructed_PMF.csv --temperature=300 --engine=gmx\"")
+        print("[USAGE    ] \"%opt1: jarzynski pmf -f work_matrix.csv -o reconstructed_PMF.csv -t 300 -e gmx\"")
+        print("[USAGE    ] \"%opt2: jarzynski pmf --file=work_matrix.csv -ofile=reconstructed_PMF.csv --temperature=300 --engine=gmx\"")
 
     def main(self):
         info=f"""<Compute Jarzynski Equality>""" + "\n" + """wrote by: Ropón-Palacios G."""
@@ -119,7 +119,7 @@ class Jarzynski(IO):
 
         for i in range(len(self.w0_avg)):
             deltaG1 = self.w0_avg[i]-(diff_w1_w2[i])     
-            deltaG2 = self.w0_avg[i]-(0.5*self.beta*diff_w1_w2[i])
+            deltaG2 = self.w0_avg[i]-((self.beta/2)*diff_w1_w2[i])
             pmf_no_beta.append(deltaG1)
             pmf_with_beta.append(deltaG2)
 
